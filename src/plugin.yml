@@ -6,6 +6,4 @@ authors: [Blackagent]
 
 main: net.blockbreaker.rpg.system.Main
 database: true
-
-lskdlsdlkfjsldjflksfk
-sdfjsd
+load: POSTWORLD
