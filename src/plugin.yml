@@ -1,9 +1,8 @@
 name: BlockBreaker.net RPG
-version 1.0
+version: 1.0
 description: RPG Plugin des BlockBreaker Servers
 author: lusu007
 authors: [Blackagent]
 
 main: net.blockbreaker.rpg.system.Main
-database: true
 load: POSTWORLD

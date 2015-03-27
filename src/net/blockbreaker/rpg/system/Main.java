@@ -1,5 +1,8 @@
 package net.blockbreaker.rpg.system;
 
+import net.blockbreaker.rpg.api.log.Logger;
+import net.blockbreaker.rpg.api.log.LoggerFile;
+import net.blockbreaker.rpg.api.log.LoggerState;
 import net.blockbreaker.rpg.api.mysql.MySQL;
 import net.blockbreaker.rpg.api.mysql.MySQLFile;
 import net.blockbreaker.rpg.api.mysql.MySQLManagementMethods;
@@ -21,10 +24,19 @@ public class Main extends JavaPlugin {
         registerCommands();
         registerEvents();
 
+        //Erstellt MySQl Cfg
         MySQLFile file = new MySQLFile();
         file.setStandard();
         file.readData();
+        
+        //Erstellt Log
+        LoggerFile log = new LoggerFile();
+        log.setStandard();
 
+        //Erstellt Log.yml
+        LoggerFile logfile = new LoggerFile();
+
+        //Connect to MySQL
         MySQL.connect();
         MySQLManagementMethods.createTableIfNotExists();
 
@@ -40,6 +52,9 @@ public class Main extends JavaPlugin {
         console.sendMessage(" ");
         console.sendMessage(ChatColor.BLUE + "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
         console.sendMessage(" ");
+
+
+        Logger.log("Test", LoggerState.INFO);
     }
 
     @Override
