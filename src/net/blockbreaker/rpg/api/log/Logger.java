@@ -44,6 +44,18 @@ public class Logger {
             logmsgcons.append(logprefix + "Logger | Date: " + logdate + "] [CRASH] " + log);
         }
 
+        if(state == LoggerState.MYSQLCONNECTION) {
+            logmsgcons.append(logprefix + "Logger | Date: " + logdate + "] [MYSQL CONNECTION] " + log);
+        }
+
+        if(state == LoggerState.MYSQLDISCONNECT) {
+            logmsgcons.append(logprefix + "Logger | Date: " + logdate + "] [MYSQL DISCONNECT] " + log);
+        }
+
+        if(state == LoggerState.MYSQLERROR) {
+            logmsgcons.append(logprefix + "Logger | Date: " + logdate + "] [MYSQL ERROR] " + log);
+        }
+
 
         String finallogcons = logmsgcons.toString();
 
@@ -71,6 +83,18 @@ public class Logger {
 
         if(state == LoggerState.CRASH) {
             LoggerFile.logData("[ " + logdate + " ] [CRASH]",finallog);
+        }
+
+        if(state == LoggerState.MYSQLCONNECTION) {
+            LoggerFile.logData("[ " + logdate + " ] [MYSQL CONNECTION]",finallog);
+        }
+
+        if(state == LoggerState.MYSQLDISCONNECT) {
+            LoggerFile.logData("[ " + logdate + " ] [MYSQL DISCONNECT]", finallog);
+        }
+
+        if(state == LoggerState.MYSQLERROR) {
+            LoggerFile.logData("[ " + logdate + " ] [MYSQL ERROR]", finallog);
         }
 
     }
