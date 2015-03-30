@@ -58,8 +58,4 @@ public class MySQLManagementMethods {
 
         return Boolean.valueOf(isInDatabase).booleanValue();
     }
-
-    //
-
-
 }
