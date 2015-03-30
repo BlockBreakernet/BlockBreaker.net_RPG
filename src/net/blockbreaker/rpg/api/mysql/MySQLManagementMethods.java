@@ -77,4 +77,21 @@ public class MySQLManagementMethods {
         return exp;
     }
 
+    public static void setEp(OfflinePlayer player, int ep) {
+        String uuid = player.getUniqueId().toString();
+
+        MySQL.update("UPDATE data SET ep = " + ep + " WHERE uuid = '" + uuid + "'");
+    }
+
+    public static void addEp(OfflinePlayer player, int addep) {
+        String uuid = player.getUniqueId().toString();
+        int newep = 0;
+        int oldep = 0;
+
+        oldep = getEP(player);
+
+        newep = oldep + addep;
+
+        MySQL.update("UPDATE data SET ep = " + newep + " WHERE uuid = '" + uuid + "'");
+    }
 }
