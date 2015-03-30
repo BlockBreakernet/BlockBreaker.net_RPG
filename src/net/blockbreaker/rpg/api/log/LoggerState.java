@@ -11,5 +11,7 @@ public enum LoggerState {
     CRASH,
     MYSQLDISCONNECT,
     MYSQLCONNECTION,
-    MYSQLERROR
+    MYSQLERROR,
+    MYSQLINSERT,
+    MYSQLREQUEST
 }

@@ -1,6 +1,7 @@
 package net.blockbreaker.rpg.api.mysql;
 
-import org.bukkit.Bukkit;
+import net.blockbreaker.rpg.api.log.Logger;
+import net.blockbreaker.rpg.api.log.LoggerState;
 import org.bukkit.OfflinePlayer;
 
 import java.sql.ResultSet;
@@ -12,12 +13,13 @@ import java.sql.SQLException;
 public class MySQLManagementMethods {
 
     public static void createTableIfNotExists() {
+        Logger.log("Create MySQL Table 'data'...", LoggerState.MYSQLINSERT);
         MySQL.update("CREATE TABLE IF NOT EXISTS data (playername VARCHAR(100), uuid VARCHAR(100), ep INTEGER, coins INTEGER, campaignprogress INTEGER)");
+        Logger.log("Created MySQL Table 'data' successfully!", LoggerState.MYSQLINSERT);
     }
 
-    public static void createData(String player) {
-        OfflinePlayer pl = Bukkit.getOfflinePlayer(player);
-        String uuid = pl.getUniqueId().toString();
+    public static void createData(OfflinePlayer player) {
+        String uuid = player.getUniqueId().toString();
 
         int ep = 0;
         int coins = 0;
@@ -27,7 +29,9 @@ public class MySQLManagementMethods {
 
         try {
             if(!rs.next()) {
-                MySQL.update("INSERT INTO data VALUES('" + pl.getName() + "', '" + uuid + "', '" + ep + "', '" + coins + "', '" + campaignprogress + "')");
+                Logger.log("Create Data for Player: " + player.getName() + "...", LoggerState.MYSQLINSERT);
+                MySQL.update("INSERT INTO data VALUES('" + player.getName() + "', '" + uuid + "', '" + ep + "', '" + coins + "', '" + campaignprogress + "')");
+                Logger.log("Data for " + player.getName() + " was created!", LoggerState.MYSQLINSERT);
                 return;
             }
         } catch (SQLException e) {
@@ -55,9 +59,8 @@ public class MySQLManagementMethods {
         return Boolean.valueOf(isInDatabase).booleanValue();
     }
 
-    public static int getEP(String player) {
-        OfflinePlayer pl = Bukkit.getOfflinePlayer(player);
-        String uuid = pl.getUniqueId().toString();
+    public static int getEP(OfflinePlayer player) {
+        String uuid = player.getUniqueId().toString();
 
         int exp = 0;
 
@@ -65,7 +68,7 @@ public class MySQLManagementMethods {
 
         try {
             if(ep.next()){
-                exp= ep.getInt("ep");
+                exp = ep.getInt("ep");
             }
         } catch (SQLException e) {
             e.printStackTrace();
