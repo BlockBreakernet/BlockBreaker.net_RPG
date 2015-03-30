@@ -56,6 +56,14 @@ public class Logger {
             logmsgcons.append(logprefix + "Logger | Date: " + logdate + "] [MYSQL ERROR] " + log);
         }
 
+        if(state == LoggerState.MYSQLINSERT) {
+            logmsgcons.append(logprefix + "Logger | Date: " + logdate + "] [MYSQL INSERT] " + log);
+        }
+
+        if(state == LoggerState.MYSQLREQUEST) {
+            logmsgcons.append(logprefix + "Logger | Date: " + logdate + "] [MYSQL REQUEST] " + log);
+        }
+
 
         String finallogcons = logmsgcons.toString();
 
@@ -97,6 +105,13 @@ public class Logger {
             LoggerFile.logData("[ " + logdate + " ] [MYSQL ERROR]", finallog);
         }
 
+        if(state == LoggerState.MYSQLINSERT) {
+            LoggerFile.logData("[ " + logdate + " ] [MYSQL INSERT]", finallog);
+        }
+
+        if(state == LoggerState.MYSQLREQUEST) {
+            LoggerFile.logData("[ " + logdate + " ] [MYSQL REQUEST]", finallog);
+        }
     }
 
     @Deprecated
@@ -132,6 +147,13 @@ public class Logger {
             logmsgcons.append(logprefix + "Logger | Date: " + logdate + "] [MYSQL ERROR] " + log);
         }
 
+        if(state == LoggerState.MYSQLINSERT) {
+            logmsgcons.append(logprefix + "Logger | Date: " + logdate + "] [MYSQL INSERT] " + log);
+        }
+
+        if(state == LoggerState.MYSQLREQUEST) {
+            logmsgcons.append(logprefix + "Logger | Date: " + logdate + "] [MYSQL REQUEST] " + log);
+        }
 
         String finallogcons = logmsgcons.toString();
 
@@ -172,6 +194,14 @@ public class Logger {
 
         if(state == LoggerState.MYSQLERROR) {
             LoggerFile.logData("[ " + logdate + " ] [MYSQL ERROR]", finallog);
+        }
+
+        if(state == LoggerState.MYSQLINSERT) {
+            LoggerFile.logData("[ " + logdate + " ] [MYSQL INSERT]", finallog);
+        }
+
+        if(state == LoggerState.MYSQLREQUEST) {
+            LoggerFile.logData("[ " + logdate + " ] [MYSQL REQUEST]", finallog);
         }
     }
 }

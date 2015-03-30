@@ -23,9 +23,9 @@ public class Join implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
 
-        MySQLManagementMethods.createData(p.getName());
+        MySQLManagementMethods.createData(p);
 
-        p.sendMessage("Deine EP: " + String.valueOf(MySQLManagementMethods.getEP(p.getName())));
+        p.sendMessage("Deine EP: " + String.valueOf(MySQLManagementMethods.getEP(p)));
 
         if(MySQLManagementMethods.isInDataBase(p) == true) {
             p.sendMessage("Boss in Datenbank");
