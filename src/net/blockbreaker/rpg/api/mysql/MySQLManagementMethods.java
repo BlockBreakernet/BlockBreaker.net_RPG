@@ -20,11 +20,11 @@ public class MySQLManagementMethods {
         OfflinePlayer pl = Bukkit.getOfflinePlayer(player);
         String uuid = pl.getUniqueId().toString();
 
-        ResultSet rs = MySQL.getResult("SELECT uuid FROM autonick WHERE uuid = '" + uuid + "'"); //TODO: database?
+        ResultSet rs = MySQL.getResult("SELECT uuid FROM data WHERE uuid = '" + uuid + "'");
 
         try {
             if(!rs.next()) {
-                MySQL.update("INSERT INTO autonick VALUES('" + uuid + "', false)");
+                MySQL.update("INSERT INTO data VALUES('" + pl.getName() + "', '" + uuid + "')");
                 return;
             }
         } catch (SQLException e) {
@@ -37,7 +37,7 @@ public class MySQLManagementMethods {
 
         boolean isInDatabase = false;
 
-        ResultSet rs = MySQL.getResult("SELECT uuid FROM autonick WHERE uuid = '" + uuid + "'");
+        ResultSet rs = MySQL.getResult("SELECT uuid FROM data WHERE uuid = '" + uuid + "'");
 
         try {
             if(rs.next()) {

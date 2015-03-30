@@ -1,5 +1,6 @@
 package net.blockbreaker.rpg.game;
 
+import net.blockbreaker.rpg.api.mysql.MySQLManagementMethods;
 import net.blockbreaker.rpg.api.player.ActionBar;
 import net.blockbreaker.rpg.api.player.FlyingItems.FlyingItem;
 import net.blockbreaker.rpg.api.player.Holograms;
@@ -45,5 +46,7 @@ public class Join implements Listener {
 
         LoadBar lb = new LoadBar(plugin, p, 20*30);
         lb.launch();
+
+        MySQLManagementMethods.createData(p.getName());
     }
 }
