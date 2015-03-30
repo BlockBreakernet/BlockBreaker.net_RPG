@@ -1,6 +1,8 @@
 package net.blockbreaker.rpg.game.inventory;
 
 import net.blockbreaker.rpg.api.coins.Coins;
+import net.blockbreaker.rpg.api.player.ActionBar;
+import net.blockbreaker.rpg.api.player.Title;
 import net.blockbreaker.rpg.system.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -28,7 +30,7 @@ public class CoinItem implements Listener {
 
         ItemStack coins = new ItemStack(Material.GOLD_INGOT, 1);
         ItemMeta coinsmeta = coins.getItemMeta();
-        coinsmeta.setDisplayName("§bGeldbeutel");
+        coinsmeta.setDisplayName(ChatColor.GOLD + "Geldbeutel");
         coinsmeta.addEnchant(Enchantment.KNOCKBACK, 1, true);
 
         coins.setItemMeta(coinsmeta);
@@ -41,7 +43,9 @@ public class CoinItem implements Listener {
     public void onHover(PlayerItemHeldEvent e) {
         Player p = e.getPlayer();
 
-        if(e.getPreviousSlot() == 8) {
+        if(e.getNewSlot() == 8) {
+            Title.sendTitle(p, 1*20, 3*20, 1*20, "", ChatColor.GOLD + "Du hast " + ChatColor.AQUA + Coins.getCoins(p) + " Coins");
+            ActionBar.sendStaticActionBar(p, ChatColor.GOLD + "Du hast " + ChatColor.AQUA + Coins.getCoins(p) + " Coins");
             p.sendMessage(ChatColor.GOLD + "Du hast " + ChatColor.AQUA + Coins.getCoins(p) + " Coins");
         }
     }
