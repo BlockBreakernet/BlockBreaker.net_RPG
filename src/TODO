@@ -1,3 +1,5 @@
 TODO: MySQL States mit Logger ausgeben
 
-    MySQL Tabelle:          Spielername    UUID    Cash    Ep    Helm    Brustplatte    Hose    Schuhe    (LastLogin)    (Standort)    (Kampgagnenfortschritt)
+    MySQL Tabelle Level&Cash:        Spielername    UUID    Cash    Ep
+
+    MySQL Gegenstände:        Spielername    UUID    Last Login    Rüstung    Pferde    Kampagne
