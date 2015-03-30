@@ -9,6 +9,7 @@ import net.blockbreaker.rpg.api.mysql.MySQL;
 import net.blockbreaker.rpg.api.mysql.MySQLFile;
 import net.blockbreaker.rpg.api.mysql.MySQLManagementMethods;
 import net.blockbreaker.rpg.game.Join;
+import net.blockbreaker.rpg.game.inventory.CoinItem;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
@@ -77,6 +78,7 @@ public class Main extends JavaPlugin {
         new MapLoad(this);
         new ServerCommand(this);
         new Join(this);
+        new CoinItem(this);
 
         Logger.logConsole("Sucessfully loaded Events!", LoggerState.INFO);
     }

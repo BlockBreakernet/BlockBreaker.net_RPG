@@ -1,9 +1,7 @@
 package net.blockbreaker.rpg.game;
 
-import net.blockbreaker.rpg.api.coins.Coins;
-import net.blockbreaker.rpg.api.ep.Ep;
 import net.blockbreaker.rpg.api.mysql.MySQLManagementMethods;
-import net.blockbreaker.rpg.game.inventory.Items;
+import net.blockbreaker.rpg.game.inventory.CoinItem;
 import net.blockbreaker.rpg.system.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -29,11 +27,7 @@ public class Join implements Listener {
 
         MySQLManagementMethods.createData(p);
 
-        Items.getCoinItem(p.getName().toString());
-
-        if(MySQLManagementMethods.isInDataBase(p) == true) {
-            p.sendMessage("Boss in Datenbank");
-        }
+        CoinItem.getCoinItem(p);
     }
 
 }
