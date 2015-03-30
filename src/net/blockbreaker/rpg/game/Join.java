@@ -4,12 +4,15 @@ import net.blockbreaker.rpg.api.coins.Coins;
 import net.blockbreaker.rpg.api.ep.Ep;
 import net.blockbreaker.rpg.api.mysql.MySQLManagementMethods;
 import net.blockbreaker.rpg.system.Main;
-import net.minecraft.server.v1_8_R1.ItemStack;
+
 import org.bukkit.Material;
+
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+
+import org.bukkit.inventory.ItemStack;
 
 /**
  * Created by Lukas on 30.03.2015.
@@ -46,7 +49,6 @@ public class Join implements Listener {
         }
 
         ItemStack coins = new ItemStack(Material.GOLD_INGOT, 100);
-
 
     }
 
