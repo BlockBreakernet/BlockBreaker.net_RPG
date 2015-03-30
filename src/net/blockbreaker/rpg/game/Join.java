@@ -4,6 +4,8 @@ import net.blockbreaker.rpg.api.coins.Coins;
 import net.blockbreaker.rpg.api.ep.Ep;
 import net.blockbreaker.rpg.api.mysql.MySQLManagementMethods;
 import net.blockbreaker.rpg.system.Main;
+import net.minecraft.server.v1_8_R1.ItemStack;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -42,5 +44,10 @@ public class Join implements Listener {
         if(MySQLManagementMethods.isInDataBase(p) == true) {
             p.sendMessage("Boss in Datenbank");
         }
+
+        ItemStack coins = new ItemStack(Material.GOLD_INGOT, 100);
+
+
     }
+
 }
