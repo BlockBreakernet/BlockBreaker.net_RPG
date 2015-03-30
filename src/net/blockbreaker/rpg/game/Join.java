@@ -1,13 +1,7 @@
 package net.blockbreaker.rpg.game;
 
 import net.blockbreaker.rpg.api.mysql.MySQLManagementMethods;
-import net.blockbreaker.rpg.api.player.ActionBar;
-import net.blockbreaker.rpg.api.player.FlyingItems.FlyingItem;
-import net.blockbreaker.rpg.api.player.Holograms;
-import net.blockbreaker.rpg.api.player.LoadBar;
 import net.blockbreaker.rpg.system.Main;
-import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -29,24 +23,12 @@ public class Join implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
 
-        String[] Text = {"Test", "Test"};
-        Location loc = p.getEyeLocation();
-
-        Holograms holo = new Holograms(Text, loc);
-        holo.showAll();
-
-
-        FlyingItem fi = new FlyingItem();
-        fi.setLocation(p.getLocation());
-        fi.setMaterial(Material.DIAMOND_SWORD);
-        fi.setText("Test");
-        fi.spawn();
-
-        ActionBar.sendStaticActionBar(p, "Test");
-
-        LoadBar lb = new LoadBar(plugin, p, 20*30);
-        lb.launch();
-
         MySQLManagementMethods.createData(p.getName());
+
+        p.sendMessage("Deine EP: " + String.valueOf(MySQLManagementMethods.getEP(p.getName())));
+
+        if(MySQLManagementMethods.isInDataBase(p) == true) {
+            p.sendMessage("Boss in Datenbank");
+        }
     }
 }

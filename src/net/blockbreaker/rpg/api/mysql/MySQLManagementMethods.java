@@ -12,19 +12,22 @@ import java.sql.SQLException;
 public class MySQLManagementMethods {
 
     public static void createTableIfNotExists() {
-        MySQL.update("CREATE TABLE IF NOT EXISTS levelcoins (playername VARCHAR(100), uuid VARCHAR(100), ep INTEGER, coins INTEGER)"); // TODO: Tabelle mit notigen Spalten bestucken
-        MySQL.update("CREATE TABLE IF NOT EXISTS data (playername VARCHAR(100), uuid VARCHAR(100))");
+        MySQL.update("CREATE TABLE IF NOT EXISTS data (playername VARCHAR(100), uuid VARCHAR(100), ep INTEGER, coins INTEGER, campaignprogress INTEGER)");
     }
 
     public static void createData(String player) {
         OfflinePlayer pl = Bukkit.getOfflinePlayer(player);
         String uuid = pl.getUniqueId().toString();
 
+        int ep = 0;
+        int coins = 0;
+        int campaignprogress = 0;
+
         ResultSet rs = MySQL.getResult("SELECT uuid FROM data WHERE uuid = '" + uuid + "'");
 
         try {
             if(!rs.next()) {
-                MySQL.update("INSERT INTO data VALUES('" + pl.getName() + "', '" + uuid + "')");
+                MySQL.update("INSERT INTO data VALUES('" + pl.getName() + "', '" + uuid + "', '" + ep + "', '" + coins + "', '" + campaignprogress + "')");
                 return;
             }
         } catch (SQLException e) {
@@ -52,12 +55,23 @@ public class MySQLManagementMethods {
         return Boolean.valueOf(isInDatabase).booleanValue();
     }
 
-    public static ResultSet getEP(String player) {
+    public static int getEP(String player) {
         OfflinePlayer pl = Bukkit.getOfflinePlayer(player);
         String uuid = pl.getUniqueId().toString();
 
-        ResultSet ep = MySQL.getResult("SELECT ep FROM levelcoins WHERE uuid ='" + uuid + "'");
-        return ep;
+        int exp = 0;
+
+        ResultSet ep = MySQL.getResult("SELECT ep FROM data WHERE uuid ='" + uuid + "'");
+
+        try {
+            if(ep.next()){
+                exp= ep.getInt("ep");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return exp;
     }
 
 }
