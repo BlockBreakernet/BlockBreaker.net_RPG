@@ -17,7 +17,7 @@ public class FlyingItem {
     private Boolean h = false;
     private Material material;
     private double height = -1.3;
-    FlyingItem(){
+    public FlyingItem(){
 
     }
 

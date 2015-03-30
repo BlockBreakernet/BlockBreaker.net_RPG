@@ -15,7 +15,7 @@ public class LoadBar {
     Plugin plugin;
     int scheduler;
 
-    LoadBar(Plugin plugin,Player player,float time){
+    public LoadBar(Plugin plugin, Player player, float time){
         this.player = player;
         this.time = time;
         this.plugin = plugin;

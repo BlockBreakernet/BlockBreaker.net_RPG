@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="BlockBreaker.net_RPG:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/BlockBreaker_net_RPG_jar</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts/BlockBreaker_net_RPG_jar/artifacts/BlockBreaker_net_RPG_jar</output-path>
     <root id="archive" name="BlockBreaker.net_RPG.jar">
       <element id="module-output" name="BlockBreaker.net_RPG" />
     </root>

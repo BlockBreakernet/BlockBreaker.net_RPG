@@ -8,6 +8,7 @@ import net.blockbreaker.rpg.api.log.events.ServerCommand;
 import net.blockbreaker.rpg.api.mysql.MySQL;
 import net.blockbreaker.rpg.api.mysql.MySQLFile;
 import net.blockbreaker.rpg.api.mysql.MySQLManagementMethods;
+import net.blockbreaker.rpg.game.Join;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
@@ -75,6 +76,7 @@ public class Main extends JavaPlugin {
         //Hier Events zum Registrieren rein
         new MapLoad(this);
         new ServerCommand(this);
+        new Join(this);
 
         Logger.logConsole("Sucessfully loaded Events!", LoggerState.INFO);
     }

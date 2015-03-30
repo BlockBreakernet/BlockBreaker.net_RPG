@@ -30,7 +30,6 @@ public class Holograms {
         create();
     }
 
-
     public void showPlayerTemp(final Player p,int Time){
         showPlayer(p);
         Bukkit.getScheduler().runTaskLater(Main.plugin, new Runnable() {
