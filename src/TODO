@@ -1,5 +1,5 @@
 TODO: MySQL States mit Logger ausgeben
 
-    MySQL Tabelle Level&Cash:        Spielername    UUID    Cash    Ep
+    MySQL Tabelle LevelCoins:        Spielername    UUID    Coins    Ep
 
-    MySQL Gegenstände:        Spielername    UUID    Last Login    Rüstung    Pferde    Kampagne
+    MySQL Daten:        Spielername    UUID    Progress
