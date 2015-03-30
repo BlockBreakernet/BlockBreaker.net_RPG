@@ -26,6 +26,10 @@ public class Join implements Listener {
         MySQLManagementMethods.createData(p);
 
         p.sendMessage("Deine EP: " + String.valueOf(MySQLManagementMethods.getEP(p)));
+        MySQLManagementMethods.setEp(p, 20);
+        p.sendMessage("Deine EP: " + String.valueOf(MySQLManagementMethods.getEP(p)));
+        MySQLManagementMethods.addEp(p, 1);
+        p.sendMessage("Deine EP: " + String.valueOf(MySQLManagementMethods.getEP(p)));
 
         if(MySQLManagementMethods.isInDataBase(p) == true) {
             p.sendMessage("Boss in Datenbank");
