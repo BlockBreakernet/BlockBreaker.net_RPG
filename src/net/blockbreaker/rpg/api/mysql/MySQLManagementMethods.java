@@ -12,9 +12,9 @@ public class MySQLManagementMethods {
         MySQL.update("CREATE TABLE IF NOT EXISTS ??????????? (Playername VARCHAR(100), UUID VARCHAR(100), ?????????????????????????)");
     }
 
-    public static void getEP(String uuid) {
-        ResultSet ep = MySQL.getResult("SELECT Ep FROM LevelCoins WHERE UUID='"+uuid+"'");
-        return
+    public static ResultSet getEP(String uuid) {
+        ResultSet ep = MySQL.getResult("SELECT Ep FROM LevelCoins WHERE UUID ='" + uuid + "'");
+        return ep;
     }
 
 }
