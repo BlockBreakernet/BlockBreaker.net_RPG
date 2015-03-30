@@ -74,4 +74,11 @@ public class MySQLManagementMethods {
         return exp;
     }
 
+    public static void setEp(String player, int ep) {
+        OfflinePlayer pl = Bukkit.getOfflinePlayer(player);
+        String uuid = pl.getUniqueId().toString();
+
+        MySQL.update("INSERT INTO data (ep) VALUES = '" + ep + "'");
+    }
+
 }
