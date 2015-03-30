@@ -59,39 +59,7 @@ public class MySQLManagementMethods {
         return Boolean.valueOf(isInDatabase).booleanValue();
     }
 
-    public static int getEP(OfflinePlayer player) {
-        String uuid = player.getUniqueId().toString();
+    //
 
-        int exp = 0;
 
-        ResultSet ep = MySQL.getResult("SELECT ep FROM data WHERE uuid ='" + uuid + "'");
-
-        try {
-            if(ep.next()){
-                exp = ep.getInt("ep");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return exp;
-    }
-
-    public static void setEp(OfflinePlayer player, int ep) {
-        String uuid = player.getUniqueId().toString();
-
-        MySQL.update("UPDATE data SET ep = " + ep + " WHERE uuid = '" + uuid + "'");
-    }
-
-    public static void addEp(OfflinePlayer player, int addep) {
-        String uuid = player.getUniqueId().toString();
-        int newep = 0;
-        int oldep = 0;
-
-        oldep = getEP(player);
-
-        newep = oldep + addep;
-
-        MySQL.update("UPDATE data SET ep = " + newep + " WHERE uuid = '" + uuid + "'");
-    }
 }
