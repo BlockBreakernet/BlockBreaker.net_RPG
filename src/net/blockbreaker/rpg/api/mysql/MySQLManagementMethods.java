@@ -55,8 +55,6 @@ public class MySQLManagementMethods {
         return Boolean.valueOf(isInDatabase).booleanValue();
     }
 
-
-
     public static int getEP(String player) {
         OfflinePlayer pl = Bukkit.getOfflinePlayer(player);
         String uuid = pl.getUniqueId().toString();
@@ -74,32 +72,6 @@ public class MySQLManagementMethods {
         }
 
         return exp;
-    }
-
-
-    public static void setEp(String player, int ep) {
-        OfflinePlayer pl = Bukkit.getOfflinePlayer(player);
-        String uuid = pl.getUniqueId().toString();
-
-        MySQL.update("INSERT INTO data (ep) VALUES = '" + ep + "'");
-    }
-
-
-    public static void addEp(String player, int addedEp) {
-        OfflinePlayer pl = Bukkit.getOfflinePlayer(player);
-        String uuid = pl.getUniqueId().toString();
-
-        ResultSet oldEp = MySQL.getResult("SELECT ep FROM data WHERE uuid ='" + uuid + "'");
-
-        int newEp = 0;
-
-        try {
-            newEp = oldEp.getInt("ep") + addedEp;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        MySQL.update("INSERT INTO data (ep) VALUES = '" + newEp + "'");
     }
 
 }
