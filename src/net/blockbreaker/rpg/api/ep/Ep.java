@@ -50,4 +50,21 @@ public class Ep {
 
         MySQL.update("UPDATE data SET ep = " + newep + " WHERE uuid = '" + uuid + "'");
     }
+
+    public static void removeEp(OfflinePlayer player, int removeep) {
+        String uuid = player.getUniqueId().toString();
+
+        int newep = 0;
+
+        ResultSet oldep = MySQL.getResult("SELECT ep FROM data WHERE uuid = '" + uuid + "'");
+        try {
+            if(oldep.next()) {
+                newep = oldep.getInt("ep") - removeep;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        MySQL.update("UPDATE data SET ep = " + newep + " WHERE uuid = '" + uuid + "'");
+    }
 }

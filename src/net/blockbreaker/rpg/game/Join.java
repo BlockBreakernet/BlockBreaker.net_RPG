@@ -1,5 +1,6 @@
 package net.blockbreaker.rpg.game;
 
+import net.blockbreaker.rpg.api.coins.Coins;
 import net.blockbreaker.rpg.api.ep.Ep;
 import net.blockbreaker.rpg.api.mysql.MySQLManagementMethods;
 import net.blockbreaker.rpg.system.Main;
@@ -31,6 +32,12 @@ public class Join implements Listener {
         p.sendMessage("Deine EP: " + String.valueOf(Ep.getEP(p)));
         Ep.addEp(p, 1);
         p.sendMessage("Deine EP: " + String.valueOf(Ep.getEP(p)));
+
+        p.sendMessage("Deine Coins: " + String.valueOf(Coins.getCoins(p)));
+        Coins.setCoins(p, 20);
+        p.sendMessage("Deine Coins: " + String.valueOf(Coins.getCoins(p)));
+        Coins.addCoins(p, 1);
+        p.sendMessage("Deine Coins: " + String.valueOf(Coins.getCoins(p)));
 
         if(MySQLManagementMethods.isInDataBase(p) == true) {
             p.sendMessage("Boss in Datenbank");

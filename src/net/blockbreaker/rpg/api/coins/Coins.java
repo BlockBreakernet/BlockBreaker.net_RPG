@@ -50,4 +50,21 @@ public class Coins {
 
         MySQL.update("UPDATE data SET coins = " + newcoins + " WHERE uuid = '" + uuid + "'");
     }
+
+    public static void removeCoins(OfflinePlayer player, int removecoins) {
+        String uuid = player.getUniqueId().toString();
+
+        int newcoins = 0;
+
+        ResultSet oldcoins = MySQL.getResult("SELECT coins FROM data WHERE uuid = '" + uuid + "'");
+        try {
+            if(oldcoins.next()) {
+                newcoins = oldcoins.getInt("coins") - removecoins;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        MySQL.update("UPDATE data SET coins = " + newcoins + " WHERE uuid = '" + uuid + "'");
+    }
 }
