@@ -29,8 +29,20 @@ public class Campaign {
         return coins;
     }
 
-    public static void setProgress(OfflinePlayer player, int progress) {
+    public static void increaseProgress(OfflinePlayer player) {
         String uuid = player.getUniqueId().toString();
+
+        int progress = 0;
+
+        ResultSet ep = MySQL.getResult("SELECT campaignprogress FROM data WHERE uuid ='" + uuid + "'");
+
+        try {
+            if(ep.next()) {
+                progress = ep.getInt("campaignprogress") + 1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         MySQL.update("UPDATE data SET campaignprogress = " + progress + " WHERE uuid = '" + uuid + "'");
     }
