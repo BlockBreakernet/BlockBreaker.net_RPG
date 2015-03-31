@@ -1,10 +1,10 @@
 package net.blockbreaker.rpg.game;
 
+import net.blockbreaker.rpg.api.ep.Ep;
 import net.blockbreaker.rpg.api.mysql.MySQLManagementMethods;
 import net.blockbreaker.rpg.api.player.FlyingItems.FlyingItem;
 import net.blockbreaker.rpg.game.inventory.CoinItem;
 import net.blockbreaker.rpg.system.Main;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,17 +26,20 @@ public class Join implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
 
-
+        //==>MySQL Funktionen
         MySQLManagementMethods.createData(p);
 
+        //==>Items bekommen
         FlyingItem item = new FlyingItem();
-        item.setLocation(p.getLocation());
-        item.setMaterial(Material.DIAMOND_SWORD);
-        item.setHeight(2);
-        item.setText("Hallo " + p.getDisplayName());
-        item.spawn();
-
         CoinItem.getCoinItem(p);
+
+        //==>Ep etc. getten
+        p.setExp(Ep.getEP(p));
+
+
+
+        //Daily Login abfragen
+        //Ausrüstung und Inventar getten
     }
 
 }

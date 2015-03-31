@@ -11,6 +11,7 @@ import java.sql.SQLException;
  */
 public class Ep {
 
+
     public static int getEP(OfflinePlayer player) {
         String uuid = player.getUniqueId().toString();
 
@@ -29,11 +30,13 @@ public class Ep {
         return exp;
     }
 
+
     public static void setEp(OfflinePlayer player, int ep) {
         String uuid = player.getUniqueId().toString();
 
         MySQL.update("UPDATE data SET ep = " + ep + " WHERE uuid = '" + uuid + "'");
     }
+
 
     public static void addEp(OfflinePlayer player, int addep) {
         String uuid = player.getUniqueId().toString();
@@ -50,6 +53,7 @@ public class Ep {
 
         MySQL.update("UPDATE data SET ep = " + newep + " WHERE uuid = '" + uuid + "'");
     }
+
 
     public static void removeEp(OfflinePlayer player, int removeep) {
         String uuid = player.getUniqueId().toString();
