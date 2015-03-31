@@ -25,7 +25,7 @@ public class MySQLManagementMethods {
 
         try {
             if(!rs.next()) {
-                MySQL.update("INSERT INTO data VALUES('" + player.getName() + "', '" + uuid + "', '" + ep + "', '" + coins + "', '" + campaignprogress + "')");
+                MySQL.update("INSERT INTO data VALUES('" + player.getName() + "', '" + uuid + "', '" + ep + "', '" + coins + "', '" + campaignprogress + "', false)");
                 return;
             }
         } catch (SQLException e) {
