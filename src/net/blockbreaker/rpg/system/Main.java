@@ -35,7 +35,6 @@ public class Main extends JavaPlugin {
 
         //Connect to MySQL
         MySQL.connect();
-        MySQLManagementMethods.createTableIfNotExists();
 
         //Enable Message
         Server server = Bukkit.getServer();

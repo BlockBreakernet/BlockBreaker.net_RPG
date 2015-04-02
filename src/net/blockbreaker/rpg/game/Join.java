@@ -26,15 +26,12 @@ public class Join implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
 
-        //==>MySQL Funktionen
-        MySQLManagementMethods.createData(p);
-
         //==>Items bekommen
         FlyingItem item = new FlyingItem();
         CoinItem.getCoinItem(p);
 
         //==>Ep etc. getten
-        p.setExp(Ep.getEP(p));
+        p.setExp(Ep.getEP(p)); // ?????, Wieso?
 
 
 
