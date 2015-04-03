@@ -40,6 +40,7 @@ public class Join implements Listener {
 
 
         // ==> Daily Login abfragen
+            Dailyrewards.getReward(p);
             Dailyrewards.setLastLogin(p);
 
 
