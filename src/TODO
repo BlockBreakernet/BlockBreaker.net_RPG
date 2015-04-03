@@ -1,5 +1,1 @@
 TODO: MySQL States mit Logger ausgeben
-
-    MySQL Tabelle LevelCoins:        Spielername    UUID    Coins    Ep
-
-    MySQL Daten:        Spielername    UUID    Progress

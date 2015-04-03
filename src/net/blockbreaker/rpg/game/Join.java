@@ -1,7 +1,8 @@
 package net.blockbreaker.rpg.game;
 
+import net.blockbreaker.rpg.api.dailyrewards.Dailyrewards;
 import net.blockbreaker.rpg.api.ep.Ep;
-import net.blockbreaker.rpg.api.mysql.MySQLManagementMethods;
+import net.blockbreaker.rpg.api.mysql.MySQL;
 import net.blockbreaker.rpg.api.player.FlyingItems.FlyingItem;
 import net.blockbreaker.rpg.game.inventory.CoinItem;
 import net.blockbreaker.rpg.system.Main;
@@ -9,6 +10,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+
+import java.text.DateFormat;
+import java.util.Locale;
 
 /**
  * Created by Lukas on 30.03.2015.
@@ -26,16 +30,19 @@ public class Join implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
 
-        //==>Items bekommen
-        FlyingItem item = new FlyingItem();
-        CoinItem.getCoinItem(p);
-
-        //==>Ep etc. getten
-        p.setExp(Ep.getEP(p)); // ?????, Wieso?
+        // ==> Items bekommen
+            FlyingItem item = new FlyingItem();
+            CoinItem.getCoinItem(p);
 
 
+        // ==> Ep etc. getten
+            p.setExp(Ep.getEP(p)); // ?????, Wieso?
 
-        //Daily Login abfragen
+
+        // ==> Daily Login abfragen
+            Dailyrewards.setLastLogin(p);
+
+
         //Ausrüstung und Inventar getten
     }
 
