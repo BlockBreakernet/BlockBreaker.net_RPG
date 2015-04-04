@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="RPApi_v1.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../API´s/RPApi_v1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
