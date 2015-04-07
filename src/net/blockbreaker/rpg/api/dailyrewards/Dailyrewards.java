@@ -6,7 +6,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.ResultSet;
 import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 /**
@@ -36,12 +35,12 @@ public class Dailyrewards extends JavaPlugin{
 
     }
 
-   /* public static boolean isDailyLogin(String lastlogin, String today) {
+    public static boolean isDailyLogin(String lastlogin, String today) {
+        DateFormat dmy = DateFormat.get
         if() {
 
         }
 
     return false;
     }
-*/
 }
