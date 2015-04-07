@@ -10,6 +10,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.text.DateFormat;
+import java.util.Locale;
+
 /**
  * Created by Lukas on 30.03.2015.
  */
@@ -30,6 +33,10 @@ public class Join implements Listener {
             FlyingItem item = new FlyingItem();
             CoinItem.getCoinItem(p);
 
+
+        DateFormat dmy = DateFormat.getDateInstance(DateFormat.SHORT, Locale.GERMANY);
+        String today = dmy.format(System.currentTimeMillis());
+        p.sendMessage(java.sql.Date.valueOf(today + 1).toString());
 
         // ==> Ep etc. getten
             p.setExp(Ep.getEP(p));
